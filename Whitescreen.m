@@ -1,4 +1,11 @@
 function [image] = Whitescreen(foreground, background, threshold)
+%Whitescreen Use white pixels as a greenscreen.
+%   Whitescreen(foreground, background, threshold) takes two RGB images of 
+%   the same size (foreground and background) and a threshold value
+%   that must be equal to or between 0 and 255. It then searches for pixels
+%   in the foreground that have an R, G, and B value greater than the
+%   threshold, and replaces those pixels with the R, G, and B values of the
+%   background image.
     fg = imread(foreground);
     bg = imread(background);
     assert(and(threshold >= 0, threshold <= 255),...
